@@ -1,10 +1,10 @@
 export interface SendSMSObject {
     phone: string
-    message: string | undefined
-    callbackUrl: string | undefined
-    previewMode: boolean | undefined
-    leadId: string | undefined
-    sendAt: string | undefined
+    message?: string
+    callbackUrl?: string
+    previewMode?: boolean
+    lead_id?: string
+    sendAt?: string
 }
 
 export interface ClientOption {
@@ -65,3 +65,69 @@ export interface DeleteScheduledMessageResponse {
     success: boolean
 }
 
+export interface CreateLeadOption {
+    name: string
+}
+
+export interface CreateLeadAPIResponse {
+    id: number,
+    name: string
+}
+
+export interface CreateLeadResponse extends CreateLeadAPIResponse {}
+
+export interface GetLeadAPIResponse {
+    id: number
+    name: string
+}
+
+export interface GetLeadResponse extends GetLeadAPIResponse {}
+
+export interface CreateContactOption {
+    phone: string
+    lead_id: number
+}
+
+export interface CreateContactAPIResponse {
+    lead_id: number
+    contact_id: number
+    phone: string
+}
+
+export interface CreateContactResponse extends CreateContactAPIResponse {}
+
+export interface GetContactListOption {
+    lead_id: number
+}
+
+export interface Contacts {
+    [key: string] : string
+}
+
+export interface GetContactListAPIResponse {
+    lead: GetLeadResponse,
+    contacts: Contacts
+}
+
+export interface GetContactListResponse extends GetContactListAPIResponse {}
+
+export interface DeleteLeadOption {
+    lead_id: number
+}
+
+export interface DeleteLeadAPIResponse {
+    success: boolean
+}
+
+export interface DeleteLeadResponse extends DeleteLeadAPIResponse {}
+
+export interface DeleteContactOption {
+    contact_id: number
+    lead_id: number
+}
+
+export interface DeleteContactAPIResponse {
+    success: boolean
+}
+
+export interface DeleteContactResponse extends DeleteContactAPIResponse {}
