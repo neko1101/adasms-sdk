@@ -25,7 +25,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run test -- --verbose --maxWorkers=2
+    - run: npm run test -- --verbose --maxWorkers=1
       env:
         TEST_PHONE: ${{secrets.TEST_PHONE}}
         ADASMS_APPLICATION_SECRET: ${{secrets.ADASMS_APPLICATION_SECRET}}
