@@ -1,12 +1,23 @@
-{
+{ 
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2021",
     "module": "CommonJS",
-    "lib": ["es2022", "es7", "es6", "dom"],
+    "lib": ["es2021", "es7", "es6", "dom"],
     "declaration": true,
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
+    "rootDir": ".",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": false,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
   },
   "exclude": [
     "node_modules/**/*",
