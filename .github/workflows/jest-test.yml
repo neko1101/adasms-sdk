@@ -18,6 +18,7 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
+    - name: set timezone
     - uses: szenius/set-timezone@v1.0
       with:
         timezoneLinux: "Asia/Kuala_Lumpur"
