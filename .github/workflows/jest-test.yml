@@ -18,10 +18,10 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-    - uses: szenius/set-timezone@v1.0
-    - name: set timezone
+    - name: Setup timezone
+      uses: zcong1993/setup-timezone@master
       with:
-        timezoneLinux: "Asia/Kuala_Lumpur"
+        timezone: Asia/Kuala_Lumpur
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
