@@ -3,8 +3,8 @@ import * as type from "../../src/types"
 import {expectTypeOf} from 'expect-type'
 import moment from 'moment'
 
-let phone = process.env.TEST_PHONE || "60199136211"
-let token = process.env.ADASMS_APPLICATION_SECRET || "3kHvNuR40dah2hjnNbaLOpzYuipCTbMu"
+let phone = process.env.TEST_PHONE
+let token = process.env.ADASMS_APPLICATION_SECRET
 let apiUrl = "https://terminal.adasms.com/api"
 
 
@@ -12,7 +12,7 @@ let client: Client
 
 beforeEach(async() => {
     const option: type.ClientOption = {
-        token: token
+        token: token!
     }
     client = new Client(option)
 })
@@ -219,7 +219,7 @@ const cleanupScheduledSMS = async (params: { message_id: number}) => {
         message_id: params.message_id
     }   
     const option: type.ClientOption = {
-        token: token
+        token: token!
     }
     const cleanupScheduledSMSClient = new Client(option)
     await cleanupScheduledSMSClient.deleteScheduledMessage(deleteParams)
@@ -230,7 +230,7 @@ const cleanupLead = async (params: { lead_id:string }) => {
         lead_id: parseInt(params.lead_id)
     }
     const option: type.ClientOption = {
-        token: token
+        token: token!
     }
     const deleteLeadClient = new Client(option)
     await deleteLeadClient.deleteLead(deleteParams)

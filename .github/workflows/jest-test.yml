@@ -26,3 +26,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm test
+      env:
+        TEST_PHONE: ${{secrets.TEST_PHONE}}
+        ADASMS_APPLICATION_SECRET: ${{secrets.ADASMS_APPLICATION_SECRET}}
