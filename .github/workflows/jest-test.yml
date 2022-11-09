@@ -18,6 +18,9 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
+    - uses: szenius/set-timezone@v1.0
+      with:
+        timezoneLinux: "Asia/Kuala_Lumpur"
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
