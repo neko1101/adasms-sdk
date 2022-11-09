@@ -10,6 +10,7 @@
     "rootDir": ".",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
+    "strictNullChecks": false
   },
   "exclude": [
     "node_modules/**/*",
