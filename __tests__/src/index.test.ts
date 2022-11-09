@@ -73,7 +73,7 @@ it('should send sms with send_at', async () => {
     }
     const response = await client.sendSMS(params)
     expectTypeOf(response).toMatchTypeOf<type.SendSMSResponse>()
-    expect(response.message!.send_at).toBe(params.send_at + ":00")
+    expect(response.message?.send_at).toBe(params.send_at + ":00")
 });
 
 it('should check for account balance', async () => {
@@ -193,7 +193,7 @@ it('should able to delete scheduled message', async () => {
     const sms = await client.sendSMS(sendSMSParams)
 
     const params: type.DeleteMessageObject = {
-        message_id: sms.message!.scheduled_message_id
+        message_id: sms.message?.scheduled_message_id
     }
     const response = await client.deleteScheduledMessage(params)
     expectTypeOf(response).toMatchTypeOf<type.DeleteScheduledMessageResponse>()
@@ -210,7 +210,7 @@ it('should list scheduled messages', async () => {
     const sms = await client.sendSMS(sendSMSParams)
 
     const response = await client.listScheduledMessage()
-    expectTypeOf(response).toMatchTypeOf<type.ListScheduledMessageResponse>()
+    expectTypeOf(response).toMatchTypeOf<type.SendSMSResponse>()
     await cleanupScheduledSMS({message_id: sms.message!.scheduled_message_id})
 });
 
