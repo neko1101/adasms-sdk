@@ -1,7 +1,7 @@
 {
   "name": "@adasms/client",
   "homepage": "https://adasms.com/",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "description": "Non-Official ADASMS Client SDK",
   "main": "./dist/index.js",
@@ -27,7 +27,7 @@
     "sms sdk",
     "sms client",
     "sms",
-    "https://adasms.com/"
+    "adasms.com"
   ],
   "author": "Hafiz Nor <fizdotcom@gmail.com>",
   "license": "MIT",
