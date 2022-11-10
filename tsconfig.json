@@ -1,9 +1,9 @@
 { 
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "ES5",
-    "module": "ES2015",
-    "lib": ["es2021", "dom"],
+    "target": "ES6",
+    "module": "CommonJS",
+    "lib": ["ES6", "dom"],
     "isolatedModules": true,
     "declaration": true,
     "outDir": "dist",
