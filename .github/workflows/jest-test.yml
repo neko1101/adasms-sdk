@@ -7,7 +7,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
 
 jobs:
   build:
@@ -35,6 +35,7 @@ jobs:
         ADASMS_APPLICATION_SECRET: ${{secrets.ADASMS_APPLICATION_SECRET}}
     - name: Comment with Test Coverage
       uses: dkershner6/jest-coverage-commenter-action@v1
+      if: github.event_name == 'pull_request'
       with:
         github_token: "${{ secrets.GITHUB_TOKEN }}"
         test_command: "npm run test -- --coverage"
