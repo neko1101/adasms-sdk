@@ -1,11 +1,9 @@
 # This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Test CI
+name: Coverage CI
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main, develop ]
 
@@ -16,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.x]
     steps:
     - uses: actions/checkout@v2
     - name: Setup timezone
@@ -29,7 +27,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run test -- --verbose --coverage
+    - name: Comment with Test Coverage
+      uses: dkershner6/jest-coverage-commenter-action@v1
+      if: github.event_name == 'pull_request'
+      with:
+        github_token: "${{ secrets.GITHUB_TOKEN }}"
+        test_command: "npm run test -- --coverage"
       env:
         TEST_PHONE: ${{secrets.TEST_PHONE}}
         ADASMS_APPLICATION_SECRET: ${{secrets.ADASMS_APPLICATION_SECRET}}

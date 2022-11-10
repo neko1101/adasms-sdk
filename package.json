@@ -1,8 +1,9 @@
 {
-  "name": "adasms-client",
-  "version": "0.0.4",
+  "name": "@adasms/client",
+  "homepage": "https://adasms.com/",
+  "version": "0.0.6",
   "type": "module",
-  "description": "Non-Official ADASMS Client",
+  "description": "Non-Official ADASMS Client SDK",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -24,14 +25,15 @@
   "keywords": [
     "adasms",
     "sms sdk",
-    "sms client"
+    "sms client",
+    "sms",
+    "https://adasms.com/"
   ],
   "author": "Hafiz Nor <fizdotcom@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/neko1101/adasms-client/issues"
   },
-  "homepage": "https://github.com/neko1101/adasms-client#readme",
   "devDependencies": {
     "@types/jest": "^29.2.2",
     "@types/node": "^18.11.9",
