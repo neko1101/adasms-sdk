@@ -1,13 +1,14 @@
 {
   "name": "adasms-sdk",
   "homepage": "https://adasms.com/",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Non-Official ADASMS Client SDK",
-  "main": "./dist/src/index.js",
-  "types": "./dist/src/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "src/**/*"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
