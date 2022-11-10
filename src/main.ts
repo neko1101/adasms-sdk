@@ -11,12 +11,14 @@ export default class Client {
      * Client constructor
      * @param option type.ClientOption
      */
-    constructor(option: type.ClientOption) {
+    constructor(option?: type.ClientOption) {
         this.apiUrl = 'https://terminal.adasms.com/api';
         if (process.env.ADASMS_APPLICATION_SECRET) {
             this.token = process.env.ADASMS_APPLICATION_SECRET;
-        } else {
+        } else if (option.token) {
             this.token = option.token;
+        } else {
+            throw new Error('token is required.');
         }
     }
 
