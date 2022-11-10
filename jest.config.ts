@@ -1,4 +1,5 @@
 import type {Config} from '@jest/types';
+
 // Sync object
 const config: Config.InitialOptions = {
   verbose: true,
@@ -23,5 +24,6 @@ const config: Config.InitialOptions = {
 //         isolatedModules: true
 //     }
 //   }
-};
-export default config;
+}
+
+export default config

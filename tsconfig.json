@@ -8,7 +8,8 @@
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
-    "rootDir": ".",
+    "rootDir": "src",
+    "baseUrl": ".",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": false,
@@ -24,6 +25,6 @@
     "dist"
   ],
   "include": [
-    "./**/*.ts"
+    "src/**/*.ts"
   ]
 }

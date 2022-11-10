@@ -90,7 +90,7 @@ it('should create lead', async () => {
     expectTypeOf(response).toMatchTypeOf<type.CreateLeadResponse>()
     expect(response.id).toBeDefined()
 
-    await cleanupLead({ lead_id: response.id.toString()})
+    await cleanupLead({ lead_id: response.id!.toString()})
 });
 
 it('should delete lead_id', async () => {
@@ -100,7 +100,7 @@ it('should delete lead_id', async () => {
     const lead = await client.createLead(leadParams)
 
     const params: type.DeleteLeadOption = {
-        lead_id: lead.id
+        lead_id: lead.id!
     }
     const response = await client.deleteLead(params)
     expectTypeOf(response).toMatchTypeOf<type.DeleteContactResponse>()
@@ -118,7 +118,7 @@ it('should list leads', async () => {
     // @ts-ignore
     expect(response.length).toBeGreaterThan(0)
 
-    await cleanupLead({lead_id: lead.id.toString()})
+    await cleanupLead({lead_id: lead.id!.toString()})
 });
 
 it('should add contact in lead', async () => {
@@ -129,13 +129,13 @@ it('should add contact in lead', async () => {
 
     const params: type.CreateContactOption = {
         phone: "60199131212",
-        lead_id: lead.id
+        lead_id: lead.id!
     }
     const response = await client.createContact(params)
     expectTypeOf(response).toMatchTypeOf<type.CreateContactResponse>()
     expect(response.contact_id).toBeDefined()
 
-    await cleanupLead({lead_id: lead.id.toString()})
+    await cleanupLead({lead_id: lead.id!.toString()})
 });
 
 it('should get contacts for lead_id', async () => {
@@ -146,19 +146,19 @@ it('should get contacts for lead_id', async () => {
 
     const contactParams: type.CreateContactOption = {
         phone: "60199131212",
-        lead_id: lead.id
+        lead_id: lead.id!
     }
     const contact = await client.createContact(contactParams)
 
     const params: type.GetContactListOption = {
-        lead_id: lead.id
+        lead_id: lead.id!
     }
     const response = await client.getContactList(params)
     expectTypeOf(response).toMatchTypeOf<type.GetContactListResponse>()
     // @ts-ignore
     expect(response.contacts[contact.contact_id]).toBeDefined()
 
-    await cleanupLead({lead_id: lead.id.toString()})
+    await cleanupLead({lead_id: lead.id!.toString()})
 });
 
 it('should delete contact in lead_id', async () => {
@@ -169,19 +169,19 @@ it('should delete contact in lead_id', async () => {
 
     const contactParams: type.CreateContactOption = {
         phone: "60199131212",
-        lead_id: lead.id
+        lead_id: lead.id!
     }
     const contact = await client.createContact(contactParams)
 
     const params: type.DeleteContactOption = {
-        lead_id: lead.id,
+        lead_id: lead.id!,
         contact_id: contact.contact_id!
     }
     const response = await client.deleteContact(params)
     expectTypeOf(response).toMatchTypeOf<type.DeleteContactResponse>()
     expect(response.success).toBeTruthy()
 
-    await cleanupLead({lead_id: lead.id.toString()})
+    await cleanupLead({lead_id: lead.id!.toString()})
 });
 
 it('should able to delete scheduled message', async () => {
@@ -194,7 +194,7 @@ it('should able to delete scheduled message', async () => {
     const sms = await client.sendSMS(sendSMSParams)
 
     const params: type.DeleteMessageObject = {
-        message_id: sms.message?.scheduled_message_id
+        message_id: sms.message!.scheduled_message_id
     }
     const response = await client.deleteScheduledMessage(params)
     expectTypeOf(response).toMatchTypeOf<type.DeleteScheduledMessageResponse>()
