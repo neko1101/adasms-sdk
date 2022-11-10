@@ -1,4 +1,4 @@
-# @adasms/client
+# adasms-sdk
  This is Non-Official a [AdaSMS](https://adasms.com/register) SDK.
 
 ## AdaSMS
@@ -39,49 +39,49 @@ ADASMS_APPLICATION_SECRET=<your-adasms-application-secret>
 Using npm:
 
 ```bash
-$ npm install @adasms/client
+$ npm install adasms-sdk
 ```
 
 Using bower:
 
 ```bash
-$ bower install @adasms/client
+$ bower install adasms-sdk
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add @adasms/client
+$ yarn add adasms-sdk
 ```
 
 Using pnpm:
 
 ```bash
-$ pnpm add @adasms/client
+$ pnpm add adasms-sdk
 ```
 
 Once the package is installed, you can import the library using `import` or `require` approach:
 
 ```js
-import { Client } from '@adasms/client'
+import { Client } from 'adasms-sdk'
 ```
 
-You can also use the default export, since the named export is just a re-export from the @adasms/client factory:
+You can also use the default export, since the named export is just a re-export from the adasms-sdk factory:
 
 ```js
-import Client from '@adasms/client'
+import Client from 'adasms-sdk'
 ````
 
 If you use `require` for importing, **only default export is available**:
 
 ```js
-const adasms = require('@adasms/client')
+const Client = require('adasms-sdk')
 ```
 
 ## Example
 `es6`
 ```js
-import { Client } from '@adasms/client'
+import { Client } from 'adasms-sdk'
 
 const client = new Client()
 /**
@@ -96,7 +96,7 @@ console.log(response.balance)
 
 `Typescript`
 ```js
-import Client, { ClientOption } from '@adasms/client'
+import Client, { ClientOption } from 'adasms-sdk'
 
 const option: ClientOption = {
     token: process.env.ADASMS_APPLICATION_SECRET
@@ -105,7 +105,7 @@ const client = new Client(option)
 
 const params: type.SendSMSObject = {
     phone: "60199126212",
-    message: "Hello from @adasms/client",
+    message: "Hello from adasms-sdk",
     previewMode: true, // dry-run
 }
 const response = await client.sendSMS()
