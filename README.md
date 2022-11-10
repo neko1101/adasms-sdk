@@ -96,14 +96,14 @@ console.log(response.balance)
 
 `Typescript`
 ```js
-import Client, { ClientOption } from 'adasms-sdk'
+import Client, { ClientOption, SendSMSObject } from 'adasms-sdk'
 
 const option: ClientOption = {
     token: process.env.ADASMS_APPLICATION_SECRET
 }
 const client = new Client(option)
 
-const params: type.SendSMSObject = {
+const params: SendSMSObject = {
     phone: "60199126212",
     message: "Hello from adasms-sdk",
     previewMode: true, // dry-run
@@ -130,4 +130,4 @@ console.log(response)
 
 # Contributing
 
-I am open to, and grateful for, any contributions made by the community. By contributing to this repo, you agree to abide by the [code of conduct](https://github.com/neko/adasms-client/blob/main/CODE_OF_CONDUCT.md).
+I am open to, and grateful for, any contributions made by the community. By contributing to this repo, you agree to abide by the [code of conduct](https://github.com/neko1101/adasms-sdk/blob/main/CODE_OF_CONDUCT.md).

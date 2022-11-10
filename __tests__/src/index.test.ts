@@ -1,5 +1,4 @@
-import { Client } from "../../src/index"
-import * as type from "../../src/types"
+import Client, * as type from "../../src/index"
 import {expectTypeOf} from 'expect-type'
 import moment from 'moment'
 
