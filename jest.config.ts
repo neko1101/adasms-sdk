@@ -17,6 +17,7 @@ const config: Config.InitialOptions = {
   rootDir: ".",
   displayName: "adasms-client",
   moduleFileExtensions: ["ts", "js", "json"],
+  modulePathIgnorePatterns: ["<rootDir>/dist/"]
 //   globals: {
 //     "ts-jest": {
 //         isolatedModules: true
