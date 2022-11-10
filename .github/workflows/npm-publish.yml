@@ -30,7 +30,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run build
-      - run: npm run test -- --verbose
+      - run: npm run test -- --verbose --converage
         env:
           TEST_PHONE: ${{secrets.TEST_PHONE}}
           ADASMS_APPLICATION_SECRET: ${{secrets.ADASMS_APPLICATION_SECRET}}
