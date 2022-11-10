@@ -1,7 +1,7 @@
 {
-  "name": "@adasms/client",
+  "name": "adasms-sdk",
   "homepage": "https://adasms.com/",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "type": "module",
   "description": "Non-Official ADASMS Client SDK",
   "main": "./dist/index.js",
