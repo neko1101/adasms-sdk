@@ -22,7 +22,7 @@ export default class Client {
 
     /**
      * Send SMS API
-     * @param params 
+     * @param params type.SendSMSResponse
      * @returns Promise<type.SendSMSResponse>
      */
     public async sendSMS(params: type.SendSMSObject): Promise<type.SendSMSResponse> {
@@ -84,7 +84,7 @@ export default class Client {
 
     /**
      * Get ADASMS credit balance
-     * @returns Promise<type.BalanceResponse | type.ErrorResponse>
+     * @returns Promise<type.BalanceResponse>
      */
     public async getCreditBalance(): Promise<type.BalanceResponse> {
         const response = await fetch(this.apiUrl 
@@ -114,7 +114,7 @@ export default class Client {
      * List scheduled "sendAt" messages in queue
      * @returns Promise<type.ScheduledMessage[] | type.ErrorResponse>
      */
-    public async listScheduledMessage(): Promise<any> {
+    public async listScheduledMessage(): Promise<type.ScheduledMessage[] | type.ErrorResponse> {
         const response = await axios.get(this.apiUrl 
             + "/v1/scheduled"
             + "?_token=" + this.token
@@ -136,7 +136,7 @@ export default class Client {
     /**
      * Delete scheduled message by message ID
      * @param params type.DeleteMessageObject
-     * @returns Promise<type.DeleteScheduledMessageResponse | type.ErrorResponse>
+     * @returns Promise<type.DeleteScheduledMessageResponse>
      */
     public async deleteScheduledMessage(params : type.DeleteMessageObject): Promise<type.DeleteScheduledMessageResponse> {
         const response = await fetch(this.apiUrl 
@@ -167,7 +167,7 @@ export default class Client {
      * @param params type.CreateLeadOption
      * @returns Promise<type.CreateLeadResponse>
      */
-    public async createLead(params: type.CreateLeadOption): Promise<any> {
+    public async createLead(params: type.CreateLeadOption): Promise<type.CreateLeadResponse> {
         const form = new URLSearchParams({
             name: params.name.toString()
         })
@@ -220,7 +220,7 @@ export default class Client {
     /**
      * Create contact with lead_id
      * @param params type.CreateContactOption
-     * @returns Promise<type.CreateContactResponse | type.ErrorResponse>
+     * @returns Promise<type.CreateContactResponse>
      */
     public async createContact(params: type.CreateContactOption): Promise<type.CreateContactResponse> {
         const form = new URLSearchParams({
@@ -252,7 +252,7 @@ export default class Client {
      * @param params type.GetContactListOption
      * @returns Promise<type.GetContactListResponse | type.ErrorResponse>
      */
-    public async getContactList(params: type.GetContactListOption): Promise<type.GetContactListResponse> {
+    public async getContactList(params: type.GetContactListOption): Promise<type.GetContactListResponse | type.ErrorResponse> {
         const response = await fetch(this.apiUrl 
             + "/v1/leads/" 
             + params.lead_id 
@@ -267,7 +267,7 @@ export default class Client {
             const ok: type.GetContactListResponse = data
             return ok
         } else {
-            const err: type.GetContactListResponse = {
+            const err: type.ErrorResponse = {
                 error: data.error,
                 explain: data.explain
             }
@@ -278,7 +278,7 @@ export default class Client {
     /**
      * Delete lead
      * @param params type.DeleteLeadOption
-     * @returns Promise<type.DeleteLeadResponse | type.ErrorResponse>
+     * @returns Promise<type.DeleteLeadResponse>
      */
     public async deleteLead(params: type.DeleteLeadOption): Promise<type.DeleteLeadResponse> {
         const response = await fetch(this.apiUrl 
@@ -306,7 +306,7 @@ export default class Client {
     /**
      * delete contact
      * @param params type.DeleteContactOption
-     * @returns Promise<type.DeleteContactResponse | type.ErrorResponse>
+     * @returns Promise<type.DeleteContactResponse>
      */
     public async deleteContact(params: type.DeleteContactOption): Promise<type.DeleteContactResponse> {
         const response = await fetch(this.apiUrl 
