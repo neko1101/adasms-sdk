@@ -1,6 +1,7 @@
 import Client, * as type from "../../src/index"
 import {expectTypeOf} from 'expect-type'
 import moment from 'moment'
+import { v4 as uuidv4 } from 'uuid';
 
 let phone = process.env.TEST_PHONE
 let token = process.env.ADASMS_APPLICATION_SECRET
@@ -122,7 +123,7 @@ it('should check for account balance', async () => {
 
 it('should return error when account balance', async () => {
     const option: type.ClientOption = {
-        token: "falsetoken"
+        token: randomToken()
     }
     const client2 = new Client(option)
     const response = await client2.getCreditBalance()
@@ -184,7 +185,7 @@ it('should list leads', async () => {
 
 it('should return error when list leads', async () => {
     const option: type.ClientOption = {
-        token: "falsetoken"
+        token: randomToken()
     }
     const client3 = new Client(option)
     const response = await client3.getLeads()
@@ -334,12 +335,11 @@ it('should list scheduled messages', async () => {
 
 it('should return error when list scheduled messages', async () => {
     const option: type.ClientOption = {
-        token: "falsetoken"
+        token: randomToken()
     }
     const client1 = new Client(option)
 
     const response = await client1.listScheduledMessage()
-    console.log(response)
     expectTypeOf(response).toMatchTypeOf<type.ListScheduledMessageResponse>()
     expect(response.error).toBeDefined()
     expect(response.error).toBeDefined()
@@ -365,4 +365,9 @@ const cleanupLead = async (params: { lead_id:string }) => {
     }
     const deleteLeadClient = new Client(option)
     const response = await deleteLeadClient.deleteLead(deleteParams)
+}
+
+const randomToken = () => {
+    const token = uuidv4().replace("-","")
+    return token.toString()
 }
