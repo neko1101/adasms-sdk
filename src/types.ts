@@ -46,9 +46,8 @@ export interface ScheduledMessage {
     sent: number;
 }
 
-export interface ListScheduledMessageResponse extends Array<ScheduledMessage> {
-    error?: string;
-    explain?: string;
+export interface ListScheduledMessageResponse extends ErrorResponse {
+    list?: ScheduledMessage[]
 }
 
 export interface BalanceAPIResponse extends ErrorResponse {
@@ -76,12 +75,14 @@ export interface CreateLeadAPIResponse extends ErrorResponse {
 
 export interface CreateLeadResponse extends CreateLeadAPIResponse {}
 
-export interface GetLeadAPIResponse {
+export interface Leads {
     id: number;
     name: string;
 }
 
-export interface GetLeadResponse extends GetLeadAPIResponse {}
+export interface GetLeadResponse extends ErrorResponse {
+    leads?: Leads[]
+}
 
 export interface CreateContactOption {
     phone: string;
