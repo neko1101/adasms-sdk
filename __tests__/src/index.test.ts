@@ -124,8 +124,8 @@ it('should return error when account balance', async () => {
     const option: type.ClientOption = {
         token: "falsetoken"
     }
-    const client1 = new Client(option)
-    const response = await client1.getCreditBalance()
+    const client2 = new Client(option)
+    const response = await client2.getCreditBalance()
     expectTypeOf(response).toMatchTypeOf<type.BalanceResponse>()
     expect(response.error).toBeDefined()
     expect(response.explain).toBeDefined()
@@ -186,8 +186,8 @@ it('should return error when list leads', async () => {
     const option: type.ClientOption = {
         token: "falsetoken"
     }
-    const client1 = new Client(option)
-    const response = await client1.getLeads()
+    const client3 = new Client(option)
+    const response = await client3.getLeads()
     expectTypeOf(response).toMatchTypeOf<type.GetLeadResponse>()
     expect(response.error).toBeDefined()
     expect(response.explain).toBeDefined()
@@ -336,9 +336,9 @@ it('should return error when list scheduled messages', async () => {
     const option: type.ClientOption = {
         token: "falsetoken"
     }
-    const client2 = new Client(option)
+    const client1 = new Client(option)
 
-    const response = await client2.listScheduledMessage()
+    const response = await client1.listScheduledMessage()
     console.log(response)
     expectTypeOf(response).toMatchTypeOf<type.ListScheduledMessageResponse>()
     expect(response.error).toBeDefined()
