@@ -2,8 +2,8 @@ import Client, * as type from "../../src/index"
 import {expectTypeOf} from 'expect-type'
 import moment from 'moment'
 
-let phone = process.env.TEST_PHONE || "60199136211"
-let token = process.env.ADASMS_APPLICATION_SECRET || "GeXSZ5rYz5tR3TPNvLQW3tZP9VA36WMr"
+let phone = process.env.TEST_PHONE
+let token = process.env.ADASMS_APPLICATION_SECRET
 let apiUrl = "https://terminal.adasms.com/api"
 
 
