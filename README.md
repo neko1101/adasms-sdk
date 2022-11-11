@@ -1,5 +1,17 @@
+[![Test CI](https://github.com/neko1101/adasms-sdk/workflows/Test%20CI/badge.svg)](https://github.com/neko1101/adasms-sdk/actions?query=workflow:"Test+CI")
+[![GitHub release](https://img.shields.io/github/release/neko1101/adasms-sdk?include_prereleases=&sort=semver&color=blue)](https://github.com/neko1101/adasms-sdk/releases/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+[![issues - adasms-sdk](https://img.shields.io/github/issues/neko1101/adasms-sdk)](https://github.com/neko1101/adasms-sdk/issues)
+
 # adasms-sdk
- This is Non-Official a [AdaSMS](https://adasms.com/register) SDK.
+This is Non-Official a [AdaSMS](https://adasms.com/register) SDK.
+ 
+[![https://nodei.co/npm/adasms-sdk.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/adasms-sdk.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/adasms-sdk)
+
+| Statements                  | Branches                | Functions                 | Lines             |
+| --------------------------- | ----------------------- | ------------------------- | ----------------- |
+| ![Statements](https://img.shields.io/badge/statements-76.47%25-red.svg?style=flat&logo=jest) | ![Branches](https://img.shields.io/badge/branches-54.83%25-red.svg?style=flat&logo=jest) | ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat&logo=jest) | ![Lines](https://img.shields.io/badge/lines-76.47%25-red.svg?style=flat&logo=jest) |
+
 
 ## AdaSMS
  The Best SMS Provider for Business

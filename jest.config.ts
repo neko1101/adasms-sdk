@@ -6,7 +6,7 @@ const config: Config.InitialOptions = {
   moduleDirectories: ["node_modules"],
   testEnvironment: "node",
   collectCoverageFrom: [
-    "src/**/*.{ts}",
+    "src/*",
     "!src/**/*.d.ts"
 ],
   transform: {
@@ -17,7 +17,12 @@ const config: Config.InitialOptions = {
   rootDir: ".",
   displayName: "adasms-client",
   moduleFileExtensions: ["ts", "js", "json"],
-  modulePathIgnorePatterns: ["<rootDir>/dist/"]
+  modulePathIgnorePatterns: ["<rootDir>/dist/"],
+  coverageReporters: [
+    "json-summary", 
+    "text",
+    "lcov"
+  ]
 }
 
 export default config
