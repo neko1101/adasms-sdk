@@ -10,7 +10,7 @@ This is Non-Official a [AdaSMS](https://adasms.com/register) SDK.
 
 | Statements                  | Branches                | Functions                 | Lines             |
 | --------------------------- | ----------------------- | ------------------------- | ----------------- |
-| ![Statements](https://img.shields.io/badge/statements-83.17%25-yellow.svg?style=flat&logo=jest) | ![Branches](https://img.shields.io/badge/branches-66.66%25-red.svg?style=flat&logo=jest) | ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat&logo=jest) | ![Lines](https://img.shields.io/badge/lines-83.17%25-yellow.svg?style=flat&logo=jest) |
+| ![Statements](https://img.shields.io/badge/statements-71.96%25-red.svg?style=flat&logo=jest) | ![Branches](https://img.shields.io/badge/branches-54.54%25-red.svg?style=flat&logo=jest) | ![Functions](https://img.shields.io/badge/functions-90.9%25-brightgreen.svg?style=flat&logo=jest) | ![Lines](https://img.shields.io/badge/lines-71.96%25-red.svg?style=flat&logo=jest) |
 
 
 ## AdaSMS
