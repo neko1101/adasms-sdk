@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import * as type from './types';
 import querystring from 'querystring';
-import axios from 'axios';
+import axios, { AxiosError }  from 'axios';
 
 export default class Client {
     private token: string;
@@ -107,21 +107,34 @@ export default class Client {
 
     /**
      * List scheduled "sendAt" messages in queue
-     * @returns Promise<type.ScheduledMessage[] | type.ErrorResponse>
+     * @returns Promise<ListScheduledMessageResponse>
      */
-    public async listScheduledMessage(): Promise<type.ScheduledMessage[] | type.ErrorResponse> {
-        const response = await axios.get(this.apiUrl + '/v1/scheduled' + '?_token=' + this.token);
-
-        const data = (await response.data) as type.ListScheduledMessageResponse;
-        if (data.length > 0) {
-            const ok: type.ScheduledMessage[] = data;
-            return ok;
-        } else {
-            const err: type.ErrorResponse = {
-                error: data.error,
-                explain: data.explain,
-            };
-            return err;
+    public async listScheduledMessage(): Promise<type.ListScheduledMessageResponse> {
+        try {
+            const response = await axios.get(this.apiUrl + '/v1/scheduled' + '?_token=' + this.token);
+            const data = response.data
+            if (data.length > 0) {
+                const ok: type.ListScheduledMessageResponse = {
+                    list: data
+                };
+                return ok;
+            } else {
+                const err: type.ListScheduledMessageResponse = {
+                    error: data.error,
+                    explain: data.explain,
+                };
+                return err;
+            }
+        } catch (error: Error | AxiosError | unknown) {
+            if(axios.isAxiosError(error)){
+                const err: type.ListScheduledMessageResponse = {
+                    error: error.code,
+                    explain: error.message,
+                };
+                return err;
+            } else {
+                console.error(error)
+            }
         }
     }
 
@@ -177,17 +190,17 @@ export default class Client {
      * Get the list of leads
      * @returns Promise<type.GetLeadResponse[] | type.ErrorResponse>
      */
-    public async getLeads(): Promise<type.GetLeadResponse[] | type.ErrorResponse> {
+    public async getLeads(): Promise<type.GetLeadResponse> {
         const response = await fetch(this.apiUrl + '/v1/leads?_token=' + this.token, {
             method: 'GET',
         });
         const data = await response.json();
 
         if (response.ok) {
-            const ok: type.GetLeadResponse[] = data;
+            const ok: type.GetLeadResponse = data;
             return ok;
         } else {
-            const err: type.ErrorResponse = {
+            const err: type.GetLeadResponse = {
                 error: data.error,
                 explain: data.explain,
             };
