@@ -36,6 +36,7 @@
     "url": "https://github.com/neko1101/adasms-client/issues"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.2.2",
     "@types/node": "^18.11.9",
     "@types/node-fetch": "^2.6.2",

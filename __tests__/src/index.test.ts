@@ -1,8 +1,10 @@
 import Client, * as type from "../../src/index"
 import {expectTypeOf} from 'expect-type'
 import moment from 'moment'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
+import { configure } from "@testing-library/react"
 
+configure({ asyncUtilTimeout: 10000 })
 let phone = process.env.TEST_PHONE
 let token = process.env.ADASMS_APPLICATION_SECRET
 let apiUrl = "https://terminal.adasms.com/api"
